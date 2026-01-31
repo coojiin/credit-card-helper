@@ -448,6 +448,55 @@
         ]
     },
     {
+        "id": "sinopac-dawho-plus",
+        "name": "永豐大戶卡 (大戶PLUS)",
+        "bank": "永豐銀行",
+        "imageUrl": "/cards/sinopac-dawho.png",
+        "defaultBillingCycleDay": 15,
+        "rules": [
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 5.0,
+                        "note": "需資產10萬+自扣+電子帳單"
+                    }
+                ]
+            },
+            {
+                "category": "travel_overseas",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 6.0,
+                        "note": "需資產10萬+自扣+電子帳單"
+                    }
+                ]
+            },
+            {
+                "category": "travel_japan",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 6.0,
+                        "note": "需資產10萬+自扣+電子帳單"
+                    }
+                ]
+            },
+            {
+                "category": "travel_korea",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 6.0,
+                        "note": "需資產10萬+自扣+電子帳單"
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": "sinopac-daway",
         "name": "永豐 DAWAY 卡",
         "bank": "永豐銀行",
@@ -740,6 +789,31 @@
                         ]
                     }
                 ]
+            },
+            {
+                "id": "insurance",
+                "name": "保險費",
+                "rules": [
+                    {
+                        "category": "insurance",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 1.3,
+                                "note": "無上限"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -886,6 +960,21 @@
                 ]
             },
             {
+                "category": "mobile_pay",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0,
+                        "note": "基本"
+                    },
+                    {
+                        "rate": 2.0,
+                        "capGroupId": "mobile_bonus",
+                        "note": "行動支付加碼"
+                    }
+                ]
+            },
+            {
                 "category": "general",
                 "period": "monthly",
                 "rewardParts": [
@@ -899,6 +988,10 @@
             {
                 "id": "brand_bonus",
                 "maxReward": 1000
+            },
+            {
+                "id": "mobile_bonus",
+                "maxReward": 200
             }
         ]
     },
@@ -948,25 +1041,6 @@
             {
                 "id": "japan_bonus",
                 "maxReward": 500
-            }
-        ]
-    },
-    {
-        "id": "huanan-sny",
-        "name": "華南 SnY 信用卡",
-        "bank": "華南銀行",
-        "imageUrl": "/cards/huanan-sny.png",
-        "defaultBillingCycleDay": 15,
-        "rules": [
-            {
-                "category": "general",
-                "period": "monthly",
-                "rewardParts": [
-                    {
-                        "rate": 0.0,
-                        "note": "詳洽官網"
-                    }
-                ]
             }
         ]
     },
