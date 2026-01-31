@@ -249,13 +249,22 @@ function TransactionItem({ tx }: { tx: any }) {
                     </div>
                 </div>
 
-                <div className="text-right">
-                    <div className="font-bold text-gray-900 text-lg">
-                        ${tx.amount.toLocaleString()}
+                <div className="text-right flex items-start gap-2">
+                    <div>
+                        <div className="font-bold text-gray-900 text-lg">
+                            ${tx.amount.toLocaleString()}
+                        </div>
+                        <div className="text-xs text-green-600 font-medium">
+                            +${tx.earnedReward.toFixed(1)}
+                        </div>
                     </div>
-                    <div className="text-xs text-green-600 font-medium">
-                        +${tx.earnedReward.toFixed(1)}
-                    </div>
+                    <button
+                        onClick={() => setIsEditing(true)}
+                        className="p-1.5 text-gray-300 hover:text-blue-500 transition-colors"
+                        title="編輯紀錄"
+                    >
+                        <Edit2 size={14} />
+                    </button>
                 </div>
             </div>
 
@@ -266,14 +275,6 @@ function TransactionItem({ tx }: { tx: any }) {
                     <span>{tx.note}</span>
                 </div>
             )}
-
-            <button
-                onClick={() => setIsEditing(true)}
-                className="absolute bottom-2 right-2 p-2 text-gray-300 hover:text-blue-500 transition-colors"
-                title="編輯紀錄"
-            >
-                <Edit2 size={16} />
-            </button>
         </div>
     )
 }

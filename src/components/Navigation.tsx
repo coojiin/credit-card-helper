@@ -16,8 +16,8 @@ export function Navigation() {
     ];
 
     return (
-        <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 pb-safe-area-inset-bottom z-50">
-            <div className="flex justify-around items-center h-16">
+        <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
+            <div className="flex justify-around items-center h-20 pb-4">
                 {navItems.map((item) => {
                     const Icon = item.icon;
                     const isActive = pathname === item.href;

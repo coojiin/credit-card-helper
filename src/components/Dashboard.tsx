@@ -88,14 +88,14 @@ export function Dashboard({ userCards }: { userCards: UserCard[] }) {
                 <div className="relative mb-4">
                     <input type="text" value={note} onChange={e => setNote(e.target.value)} className="w-full px-4 py-2 rounded-xl bg-gray-100 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="備註 (例如: 買午餐)..." />
                 </div>
-                <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+                <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
                     {SCENARIOS.map(s => {
                         const Icon = s.icon;
                         const isActive = scenario === s.id;
                         return (
-                            <button key={s.id} onClick={() => setScenario(s.id)} className={`flex flex-col items-center gap-1 min-w-[70px] p-2 rounded-lg transition-colors ${isActive ? 'bg-blue-600 text-white' : 'bg-gray-50 text-gray-600'}`}>
-                                <Icon size={20} />
-                                <span className="text-xs">{s.label}</span>
+                            <button key={s.id} onClick={() => setScenario(s.id)} className={`flex flex-col items-center gap-0.5 min-w-[60px] px-2 py-1.5 rounded-lg transition-colors ${isActive ? 'bg-blue-600 text-white' : 'bg-gray-50 text-gray-600'}`}>
+                                <Icon size={18} />
+                                <span className="text-[10px] whitespace-nowrap">{s.label}</span>
                             </button>
                         )
                     })}
