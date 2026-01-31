@@ -96,6 +96,7 @@ function TransactionItem({ tx }: { tx: any }) {
     // Derived Rate state for UI convenience
     const [editRate, setEditRate] = useState(tx.amount > 0 ? ((tx.earnedReward / tx.amount) * 100).toFixed(1) : "0");
     const [editNote, setEditNote] = useState(tx.note || "");
+    const [editDate, setEditDate] = useState(format(tx.timestamp, 'yyyy-MM-dd\'T\'HH:mm'));
 
     const userCard = useLiveQuery(() => db.userCards.get(tx.userCardId));
 
@@ -105,6 +106,7 @@ function TransactionItem({ tx }: { tx: any }) {
         setEditReward(tx.earnedReward);
         setEditRate(tx.amount > 0 ? ((tx.earnedReward / tx.amount) * 100).toFixed(1) : "0");
         setEditNote(tx.note || "");
+        setEditDate(format(tx.timestamp, 'yyyy-MM-dd\'T\'HH:mm'));
     }, [tx, isEditing]);
 
     const handleSave = async () => {
@@ -114,7 +116,8 @@ function TransactionItem({ tx }: { tx: any }) {
         await db.transactions.update(tx.id, {
             amount: newAmount,
             earnedReward: newReward,
-            note: editNote
+            note: editNote,
+            timestamp: new Date(editDate).getTime()
         });
         setIsEditing(false);
     };
@@ -186,16 +189,26 @@ function TransactionItem({ tx }: { tx: any }) {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-2 mb-3 bg-gray-50 p-2 rounded">
-                    <Calculator size={14} className="text-gray-400" />
-                    <label className="text-xs text-gray-500 whitespace-nowrap">回饋率(%):</label>
+                <div className="flex items-center gap-2 mb-3 bg-gray-100 p-2 rounded">
+                    <Calculator size={14} className="text-gray-600" />
+                    <label className="text-xs text-gray-700 whitespace-nowrap font-medium">回饋率(%):</label>
                     <input
                         type="number"
-                        className="w-16 bg-transparent border-b border-gray-300 text-center font-mono text-sm focus:border-blue-500 outline-none"
+                        className="w-16 bg-white border border-gray-300 rounded px-2 py-1 text-center font-mono text-sm text-gray-900 focus:border-blue-500 outline-none"
                         value={editRate}
                         onChange={(e) => handleRateChange(e.target.value)}
                     />
-                    <span className="text-xs text-gray-400">%</span>
+                    <span className="text-xs text-gray-600">%</span>
+                </div>
+
+                <div className="mb-3">
+                    <label className="text-xs text-gray-500">消費日期</label>
+                    <input
+                        type="datetime-local"
+                        className="w-full bg-gray-50 rounded p-2 text-gray-700 text-sm border focus:border-blue-500 outline-none"
+                        value={editDate}
+                        onChange={(e) => setEditDate(e.target.value)}
+                    />
                 </div>
 
                 <div className="mb-3">
