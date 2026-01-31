@@ -9,6 +9,7 @@ import { ShoppingCart, Zap, Fuel, Globe, Plane, Coffee, CreditCard, Apple, Store
 
 const SCENARIOS = [
     { id: 'general', label: '一般消費', icon: ShoppingCart },
+    { id: 'mobile_pay', label: '行動支付', icon: Zap },
     { id: 'convenience_store', label: '便利商店', icon: Coffee },
     { id: 'supermarket', label: '超市/量販', icon: ShoppingCart },
     { id: 'gas', label: '加油', icon: Fuel },
@@ -19,7 +20,6 @@ const SCENARIOS = [
     { id: 'travel_overseas', label: '海外消費(其他)', icon: MapPin },
     { id: 'dining', label: '餐廳', icon: Store },
     { id: 'department_store', label: '百貨', icon: CreditCard },
-    { id: 'mobile_pay', label: '行動支付', icon: Zap },
     { id: 'entertainment', label: '影音串流', icon: Apple },
 ];
 
