@@ -1,0 +1,87 @@
+[
+    {
+        "id": "fubon-j",
+        "name": "富邦 J 卡",
+        "bank": "台北富邦",
+        "imageUrl": "/cards/fubon-j.png",
+        "defaultBillingCycleDay": 27,
+        "rules": [
+            {
+                "category": "travel_japan",
+                "percentage": 5.0,
+                "capType": "none",
+                "period": "monthly"
+            },
+            {
+                "category": "general",
+                "percentage": 1.0,
+                "capType": "none",
+                "period": "monthly"
+            }
+        ]
+    },
+    {
+        "id": "cathay-cube",
+        "name": "國泰 CUBE 卡",
+        "bank": "國泰世華",
+        "imageUrl": "/cards/cathay-cube.png",
+        "defaultBillingCycleDay": 27,
+        "rules": [
+            {
+                "category": "general",
+                "percentage": 3.0,
+                "capType": "none",
+                "period": "monthly"
+            },
+            {
+                "category": "online",
+                "percentage": 3.0,
+                "capType": "none",
+                "period": "monthly"
+            }
+        ]
+    },
+    {
+        "id": "ctbc-linepay",
+        "name": "中信 LinePay 卡",
+        "bank": "中國信託",
+        "imageUrl": "/cards/ctbc-line.png",
+        "defaultBillingCycleDay": 5,
+        "rules": [
+            {
+                "category": "general",
+                "percentage": 1.0,
+                "capType": "none",
+                "period": "monthly"
+            },
+            {
+                "category": "overseas",
+                "percentage": 2.8,
+                "capType": "none",
+                "period": "monthly"
+            }
+        ]
+    },
+    {
+        "id": "union-bank-park",
+        "name": "聯邦吉鶴卡",
+        "bank": "聯邦銀行",
+        "imageUrl": "/cards/union-park.png",
+        "defaultBillingCycleDay": 15,
+        "rules": [
+            {
+                "category": "travel_japan",
+                "percentage": 4.5,
+                "capType": "amount",
+                "capValue": 1000,
+                "period": "monthly"
+            },
+            {
+                "category": "general",
+                "percentage": 1.5,
+                "capType": "none",
+                "period": "monthly"
+            }
+        ]
+    }
+]
