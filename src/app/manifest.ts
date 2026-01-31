@@ -1,14 +1,16 @@
 import { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: 'Credit Card Helper',
-        short_name: 'CardHelper',
+        name: '卡利害 - 你的刷卡神隊友',
+        short_name: '卡利害',
         description: 'Optimize your credit card rewards',
         start_url: '/',
         display: 'standalone',
         background_color: '#ffffff',
-        theme_color: '#000000',
+        theme_color: '#3b82f6',
         icons: [
             {
                 src: '/web-app-manifest-192x192.png',

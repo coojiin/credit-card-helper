@@ -5,18 +5,66 @@
         "bank": "台北富邦",
         "imageUrl": "/cards/fubon-j.png",
         "defaultBillingCycleDay": 27,
+        "capDefinitions": [
+            {
+                "id": "travel_bonus",
+                "maxReward": 1000
+            }
+        ],
         "rules": [
             {
                 "category": "travel_japan",
-                "percentage": 5.0,
-                "capType": "none",
-                "period": "monthly"
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 3.0,
+                        "note": "基本(實體卡)"
+                    },
+                    {
+                        "rate": 3.0,
+                        "capGroupId": "travel_bonus",
+                        "note": "季加碼(需登錄/實體卡/季上限)"
+                    }
+                ]
+            },
+            {
+                "category": "travel_korea",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 3.0,
+                        "note": "基本(實體卡)"
+                    },
+                    {
+                        "rate": 3.0,
+                        "capGroupId": "travel_bonus",
+                        "note": "季加碼(需登錄/實體卡/季上限)"
+                    }
+                ]
+            },
+            {
+                "category": "travel_thailand",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 3.0,
+                        "note": "基本(實體卡)"
+                    },
+                    {
+                        "rate": 3.0,
+                        "capGroupId": "travel_bonus",
+                        "note": "季加碼(需登錄/實體卡/季上限)"
+                    }
+                ]
             },
             {
                 "category": "general",
-                "percentage": 1.0,
-                "capType": "none",
-                "period": "monthly"
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0
+                    }
+                ]
             }
         ]
     },
@@ -29,58 +77,986 @@
         "rules": [
             {
                 "category": "general",
-                "percentage": 3.0,
-                "capType": "none",
-                "period": "monthly"
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 0.3,
+                        "note": "未切換權益"
+                    }
+                ]
+            }
+        ],
+        "subSchemes": [
+            {
+                "id": "travel",
+                "name": "趣旅行",
+                "rules": [
+                    {
+                        "category": "travel_overseas",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "權益分級: 2%~3.3%"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "travel_japan",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "權益分級: 2%~3.3%"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "travel",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "權益分級: 2%~3.3%"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                "category": "online",
-                "percentage": 3.0,
-                "capType": "none",
-                "period": "monthly"
+                "id": "shopping",
+                "name": "樂饗購",
+                "rules": [
+                    {
+                        "category": "department_store",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "權益分級: 2%~3.3%"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "dining",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "權益分級: 2%~3.3%"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "digital",
+                "name": "玩數位",
+                "rules": [
+                    {
+                        "category": "online",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "權益分級: 2%~3.3%"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "select",
+                "name": "集精選",
+                "rules": [
+                    {
+                        "category": "convenience_store",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "權益分級: 2%~3.3%"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "supermarket",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "權益分級: 2%~3.3%"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "gas",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "權益分級: 2%~3.3%"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
     {
-        "id": "ctbc-linepay",
-        "name": "中信 LinePay 卡",
+        "id": "union-ji-he",
+        "name": "聯邦吉鶴卡",
+        "bank": "聯邦銀行",
+        "imageUrl": "/cards/union-ji-he.png",
+        "defaultBillingCycleDay": 5,
+        "capDefinitions": [
+            {
+                "id": "mobile_bonus",
+                "maxReward": 600
+            },
+            {
+                "id": "dining_bonus",
+                "maxReward": 500
+            }
+        ],
+        "rules": [
+            {
+                "category": "travel_japan",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.5,
+                        "note": "無上限"
+                    }
+                ]
+            },
+            {
+                "category": "mobile_pay",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0,
+                        "note": "國內一般"
+                    },
+                    {
+                        "rate": 1.5,
+                        "capGroupId": "mobile_bonus",
+                        "note": "加碼"
+                    }
+                ]
+            },
+            {
+                "category": "travel_japan_applepay",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.5,
+                        "note": "日本一般"
+                    },
+                    {
+                        "rate": 1.5,
+                        "capGroupId": "mobile_bonus",
+                        "note": "Apple Pay加碼"
+                    }
+                ]
+            },
+            {
+                "category": "dining",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0
+                    },
+                    {
+                        "rate": 3.0,
+                        "capGroupId": "dining_bonus",
+                        "note": "日系餐廳加碼 (現折)"
+                    }
+                ]
+            },
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "union-uniopen",
+        "name": "uniopen聯名卡",
+        "bank": "統一 (聯名)",
+        "imageUrl": "/cards/union-uniopen.png",
+        "defaultBillingCycleDay": 1,
+        "capDefinitions": [
+            {
+                "id": "icash_bonus",
+                "maxReward": 150
+            },
+            {
+                "id": "task_bonus",
+                "maxReward": 500
+            },
+            {
+                "id": "overseas_bonus",
+                "maxReward": 500
+            }
+        ],
+        "rules": [
+            {
+                "category": "convenience_store",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0,
+                        "note": "基本"
+                    },
+                    {
+                        "rate": 2.0,
+                        "note": "統一"
+                    },
+                    {
+                        "rate": 4.0,
+                        "capGroupId": "icash_bonus",
+                        "note": "icash Pay"
+                    },
+                    {
+                        "rate": 4.0,
+                        "capGroupId": "task_bonus",
+                        "note": "任務"
+                    }
+                ]
+            },
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0
+                    }
+                ]
+            },
+            {
+                "category": "travel_overseas",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.0,
+                        "note": "海外一般"
+                    }
+                ]
+            },
+            {
+                "category": "travel_japan",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 3.0,
+                        "note": "海外(實體卡)"
+                    },
+                    {
+                        "rate": 8.0,
+                        "capGroupId": "overseas_bonus",
+                        "note": "日韓泰越菲(實體卡)"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "sinopac-dawho",
+        "name": "永豐大戶卡 (大戶)",
+        "bank": "永豐銀行",
+        "imageUrl": "/cards/sinopac-dawho.png",
+        "defaultBillingCycleDay": 15,
+        "capDefinitions": [
+            {
+                "id": "cat_bonus",
+                "maxReward": 400
+            }
+        ],
+        "rules": [
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0,
+                        "note": "基本"
+                    },
+                    {
+                        "rate": 2.5,
+                        "capGroupId": "cat_bonus",
+                        "note": "指定任務"
+                    }
+                ]
+            },
+            {
+                "category": "travel_overseas",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.0,
+                        "note": "海外基本"
+                    },
+                    {
+                        "rate": 2.5,
+                        "capGroupId": "cat_bonus",
+                        "note": "指定任務"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "sinopac-daway",
+        "name": "永豐 DAWAY 卡",
+        "bank": "永豐銀行",
+        "imageUrl": "/cards/sinopac-daway.png",
+        "defaultBillingCycleDay": 15,
+        "capDefinitions": [
+            {
+                "id": "lp_bonus",
+                "maxReward": 300
+            },
+            {
+                "id": "korea_bonus",
+                "maxReward": 500
+            }
+        ],
+        "rules": [
+            {
+                "category": "mobile_pay",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 0.5,
+                        "note": "基本"
+                    },
+                    {
+                        "rate": 1.5,
+                        "capGroupId": "lp_bonus",
+                        "note": "LINE Pay"
+                    }
+                ]
+            },
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 0.5
+                    }
+                ]
+            },
+            {
+                "category": "travel_overseas",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.5
+                    }
+                ]
+            },
+            {
+                "category": "travel_korea",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.5,
+                        "note": "海外基本"
+                    },
+                    {
+                        "rate": 2.5,
+                        "capGroupId": "korea_bonus",
+                        "note": "韓國登錄"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "sinopac-mitsui",
+        "name": "永豐 MITSUI OUTLET PARK",
+        "bank": "永豐銀行",
+        "imageUrl": "/cards/sinopac-mitsui.png",
+        "defaultBillingCycleDay": 15,
+        "capDefinitions": [
+            {
+                "id": "dining_bonus",
+                "maxReward": 100
+            }
+        ],
+        "rules": [
+            {
+                "category": "department_store",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0,
+                        "note": "館內"
+                    }
+                ]
+            },
+            {
+                "category": "dining",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 0.3
+                    },
+                    {
+                        "rate": 6.7,
+                        "capGroupId": "dining_bonus",
+                        "note": "餐飲加碼/全盈Pay"
+                    }
+                ]
+            },
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 0.3
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "taishin-richart",
+        "name": "台新 Richart 卡",
+        "bank": "台新銀行",
+        "imageUrl": "/cards/taishin-richart.png",
+        "defaultBillingCycleDay": 12,
+        "capDefinitions": [
+            {
+                "id": "scheme_bonus",
+                "maxReward": 1000
+            }
+        ],
+        "rules": [
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 0.3
+                    }
+                ]
+            }
+        ],
+        "subSchemes": [
+            {
+                "id": "pay",
+                "name": "Pay 著刷",
+                "rules": [
+                    {
+                        "category": "mobile_pay",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            },
+                            {
+                                "rate": 3.5,
+                                "capGroupId": "scheme_bonus",
+                                "note": "LINE Pay/街口"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "eat",
+                "name": "好饗刷",
+                "rules": [
+                    {
+                        "category": "dining",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            },
+                            {
+                                "rate": 3.0,
+                                "capGroupId": "scheme_bonus"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "digital",
+                "name": "數趣刷",
+                "rules": [
+                    {
+                        "category": "online",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            },
+                            {
+                                "rate": 3.0,
+                                "capGroupId": "scheme_bonus",
+                                "note": "網購/影音"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "travel",
+                "name": "玩旅刷",
+                "rules": [
+                    {
+                        "category": "travel_overseas",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            },
+                            {
+                                "rate": 3.0,
+                                "capGroupId": "scheme_bonus"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "travel_japan",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            },
+                            {
+                                "rate": 3.0,
+                                "capGroupId": "scheme_bonus"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "big",
+                "name": "大筆刷",
+                "rules": [
+                    {
+                        "category": "department_store",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            },
+                            {
+                                "rate": 3.0,
+                                "capGroupId": "scheme_bonus"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "monthly",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "esun-ubear",
+        "name": "玉山 U Bear",
+        "bank": "玉山銀行",
+        "imageUrl": "/cards/esun-ubear.png",
+        "defaultBillingCycleDay": 13,
+        "capDefinitions": [
+            {
+                "id": "online_bonus",
+                "maxReward": 150
+            },
+            {
+                "id": "video_bonus",
+                "maxReward": 100
+            }
+        ],
+        "rules": [
+            {
+                "category": "online",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0
+                    },
+                    {
+                        "rate": 2.0,
+                        "capGroupId": "online_bonus",
+                        "note": "網購加碼/行動支付"
+                    }
+                ]
+            },
+            {
+                "category": "entertainment",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 10.0,
+                        "capGroupId": "video_bonus",
+                        "note": "影音平台"
+                    }
+                ]
+            },
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "fubon-costco",
+        "name": "富邦 Costco 聯名卡",
+        "bank": "台北富邦",
+        "imageUrl": "/cards/fubon-costco.png",
+        "defaultBillingCycleDay": 27,
+        "capDefinitions": [
+            {
+                "id": "gas_bonus",
+                "maxReward": 200
+            }
+        ],
+        "rules": [
+            {
+                "category": "costco_store",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.0,
+                        "note": "好多金"
+                    }
+                ]
+            },
+            {
+                "category": "costco_online",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 3.0
+                    }
+                ]
+            },
+            {
+                "category": "gas",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.0
+                    },
+                    {
+                        "rate": 1.0,
+                        "capGroupId": "gas_bonus",
+                        "note": "加油加碼"
+                    }
+                ]
+            },
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "fubon-momo",
+        "name": "momo富邦聯名卡",
+        "bank": "台北富邦",
+        "imageUrl": "/cards/fubon-momo.png",
+        "defaultBillingCycleDay": 27,
+        "rules": [
+            {
+                "category": "momo",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 3.0,
+                        "note": "基本"
+                    },
+                    {
+                        "rate": 4.0,
+                        "note": "品牌加碼(需登錄)",
+                        "capGroupId": "brand_bonus"
+                    }
+                ]
+            },
+            {
+                "category": "online",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 3.0,
+                        "note": "momo通路"
+                    }
+                ]
+            },
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0
+                    }
+                ]
+            }
+        ],
+        "capDefinitions": [
+            {
+                "id": "brand_bonus",
+                "maxReward": 1000
+            }
+        ]
+    },
+    {
+        "id": "ctbc-linepay-prestige",
+        "name": "中信 LinePay 鼎級卡",
         "bank": "中國信託",
-        "imageUrl": "/cards/ctbc-line.png",
+        "imageUrl": "/cards/ctbc-linepay.png",
         "defaultBillingCycleDay": 5,
         "rules": [
             {
                 "category": "general",
-                "percentage": 1.0,
-                "capType": "none",
-                "period": "monthly"
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0
+                    }
+                ]
             },
             {
-                "category": "overseas",
-                "percentage": 2.8,
-                "capType": "none",
-                "period": "monthly"
+                "category": "travel_overseas",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.8,
+                        "note": "實體卡"
+                    }
+                ]
+            },
+            {
+                "category": "travel_japan",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.8,
+                        "note": "實體卡"
+                    },
+                    {
+                        "rate": 3.0,
+                        "note": "限額登錄/實體卡",
+                        "capGroupId": "japan_bonus"
+                    }
+                ]
+            }
+        ],
+        "capDefinitions": [
+            {
+                "id": "japan_bonus",
+                "maxReward": 500
             }
         ]
     },
     {
-        "id": "union-bank-park",
-        "name": "聯邦吉鶴卡",
-        "bank": "聯邦銀行",
-        "imageUrl": "/cards/union-park.png",
+        "id": "huanan-sny",
+        "name": "華南 SnY 信用卡",
+        "bank": "華南銀行",
+        "imageUrl": "/cards/huanan-sny.png",
         "defaultBillingCycleDay": 15,
         "rules": [
             {
-                "category": "travel_japan",
-                "percentage": 4.5,
-                "capType": "amount",
-                "capValue": 1000,
-                "period": "monthly"
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 0.0,
+                        "note": "詳洽官網"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "huanan-inet",
+        "name": "華南 i網購生活卡",
+        "bank": "華南銀行",
+        "imageUrl": "/cards/huanan-inet.png",
+        "defaultBillingCycleDay": 15,
+        "capDefinitions": [
+            {
+                "id": "net_bonus",
+                "maxReward": 200
+            }
+        ],
+        "rules": [
+            {
+                "category": "online",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.0,
+                        "capGroupId": "net_bonus",
+                        "note": "2026/3止"
+                    }
+                ]
             },
             {
                 "category": "general",
-                "percentage": 1.5,
-                "capType": "none",
-                "period": "monthly"
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 0.0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "huanan-super-diamond",
+        "name": "華南超鑽現金回饋卡",
+        "bank": "華南銀行",
+        "imageUrl": "/cards/huanan-super-diamond.png",
+        "defaultBillingCycleDay": 15,
+        "rules": [
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.0,
+                        "note": "2026/3止"
+                    }
+                ]
+            },
+            {
+                "category": "travel_overseas",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "yuanta-diamond",
+        "name": "元大鑽金卡",
+        "bank": "元大銀行",
+        "imageUrl": "/cards/yuanta-diamond.png",
+        "defaultBillingCycleDay": 15,
+        "rules": [
+            {
+                "category": "general",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 1.2
+                    }
+                ]
+            },
+            {
+                "category": "travel_overseas",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 2.2
+                    }
+                ]
             }
         ]
     }
