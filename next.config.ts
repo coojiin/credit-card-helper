@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   },
   // 如果部署到 GitHub Pages 且不是網域根目錄 (例如 /repo-name)，需要加上 basePath
   basePath: '/credit-card-helper',
+  trailingSlash: true,
 };
 
 export default nextConfig;
