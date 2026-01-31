@@ -12,6 +12,17 @@ export default function SettingsPage() {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [isExporting, setIsExporting] = useState(false);
     const [isImporting, setIsImporting] = useState(false);
+    const [isPersistent, setIsPersistent] = useState<boolean | null>(null);
+    const [lastBackup, setLastBackup] = useState<string | null>(() => {
+        if (typeof window !== 'undefined') return localStorage.getItem('last_backup_at');
+        return null;
+    });
+
+    useState(() => {
+        if (typeof navigator !== 'undefined' && navigator.storage && navigator.storage.persisted) {
+            navigator.storage.persisted().then(setIsPersistent);
+        }
+    });
 
     const updateBillingDay = async (id: string, day: number) => {
         if (day < 1 || day > 31) return;
@@ -42,6 +53,10 @@ export default function SettingsPage() {
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
+
+            const now = new Date().toLocaleString();
+            setLastBackup(now);
+            localStorage.setItem('last_backup_at', now);
         } catch (e) {
             alert('匯出失敗');
         } finally {
@@ -103,9 +118,23 @@ export default function SettingsPage() {
                     資料備份與安全
                 </h2>
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                    <div className="flex items-center justify-between mb-4">
+                        <div className="text-xs text-gray-500">儲存保護狀態</div>
+                        <div className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${isPersistent ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
+                            {isPersistent ? '🛡️ 已永久授權' : '⚠️ 系統管理中'}
+                        </div>
+                    </div>
+
                     <p className="text-xs text-gray-500 mb-4 leading-relaxed">
-                        您的資料目前僅儲存於此裝置的本地瀏覽器中。為避免更換手機或清除瀏覽紀錄導致遺失，建議定期匯出備份至身分雲端 (iCloud / Google Drive)。
+                        您的資料目前儲存於此裝置。{isPersistent ? 'iOS 已授權永久儲存，不會隨意清空。' : '建議定期備份以免 Safari 清除資料。'}
                     </p>
+
+                    {lastBackup && (
+                        <div className="mb-4 p-2 bg-blue-50 rounded-lg border border-blue-100 flex items-center justify-between">
+                            <span className="text-[10px] text-blue-600 font-bold">上次備份時間</span>
+                            <span className="text-[10px] text-blue-500">{lastBackup}</span>
+                        </div>
+                    )}
 
                     <div className="grid grid-cols-2 gap-3">
                         <button
