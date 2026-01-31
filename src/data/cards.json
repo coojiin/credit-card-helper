@@ -380,8 +380,13 @@
                 "period": "monthly",
                 "rewardParts": [
                     {
-                        "rate": 2.0,
-                        "note": "海外一般"
+                        "rate": 3.0,
+                        "note": "海外實體(無上限)"
+                    },
+                    {
+                        "rate": 8.0,
+                        "capGroupId": "overseas_bonus",
+                        "note": "日韓泰越菲加碼(至6月底)"
                     }
                 ]
             },
@@ -391,12 +396,42 @@
                 "rewardParts": [
                     {
                         "rate": 3.0,
-                        "note": "海外(實體卡)"
+                        "note": "海外實體(無上限)"
                     },
                     {
                         "rate": 8.0,
                         "capGroupId": "overseas_bonus",
-                        "note": "日韓泰越菲(實體卡)"
+                        "note": "日韓泰越菲加碼(至6月底)"
+                    }
+                ]
+            },
+            {
+                "category": "travel_korea",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 3.0,
+                        "note": "海外實體(無上限)"
+                    },
+                    {
+                        "rate": 8.0,
+                        "capGroupId": "overseas_bonus",
+                        "note": "日韓泰越菲加碼(至6月底)"
+                    }
+                ]
+            },
+            {
+                "category": "travel_thailand",
+                "period": "monthly",
+                "rewardParts": [
+                    {
+                        "rate": 3.0,
+                        "note": "海外實體(無上限)"
+                    },
+                    {
+                        "rate": 8.0,
+                        "capGroupId": "overseas_bonus",
+                        "note": "日韓泰越菲加碼(至6月底)"
                     }
                 ]
             }
