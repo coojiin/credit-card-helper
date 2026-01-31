@@ -37,7 +37,7 @@ export function Onboarding() {
             <h1 className="text-2xl font-bold mb-2 text-gray-900">歡迎使用</h1>
             <p className="text-gray-600 mb-6">請選擇您目前持有的信用卡：</p>
 
-            <div className="flex-1 space-y-4 overflow-y-auto mb-4">
+            <div className="flex-1 space-y-4 overflow-y-auto mb-4 pb-20">
                 {CARD_DEFS.map(card => {
                     const isSelected = selectedIds.has(card.id);
                     return (
@@ -68,13 +68,15 @@ export function Onboarding() {
                 })}
             </div>
 
-            <button
-                onClick={handleSubmit}
-                disabled={selectedIds.size === 0}
-                className="w-full py-4 rounded-xl bg-blue-600 text-white font-bold text-lg disabled:opacity-50 active:scale-95 transition-transform"
-            >
-                開始使用 ({selectedIds.size})
-            </button>
+            <div className="sticky bottom-0 bg-gray-50 pt-4 pb- safe-area-inset-bottom">
+                <button
+                    onClick={handleSubmit}
+                    disabled={selectedIds.size === 0}
+                    className="w-full py-4 rounded-xl bg-blue-600 text-white font-bold text-lg disabled:opacity-50 active:scale-95 transition-transform shadow-lg mb-20"
+                >
+                    開始使用 ({selectedIds.size})
+                </button>
+            </div>
         </div>
     );
 }
