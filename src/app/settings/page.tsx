@@ -4,8 +4,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/lib/db';
 import { CARD_DEFS } from '@/lib/calculator';
 import { useState, useRef, useEffect } from 'react';
-import { getBankColor } from '@/lib/utils';
-import { Calendar, Download, Upload, Trash2, ShieldCheck, AlertCircle, List, ArrowUp, ArrowDown } from 'lucide-react';
+import { Download, Upload, Trash2, ShieldCheck, List, ArrowUp, ArrowDown } from 'lucide-react';
 import { SCENARIOS } from '@/components/Dashboard';
 
 export default function SettingsPage() {
@@ -73,10 +72,7 @@ export default function SettingsPage() {
         }
     };
 
-    const updateBillingDay = async (id: string, day: number) => {
-        if (day < 1 || day > 31) return;
-        await db.userCards.update(id, { billingCycleDay: day });
-    };
+
 
     const handleExport = async () => {
         setIsExporting(true);
@@ -269,53 +265,7 @@ export default function SettingsPage() {
                 </div>
             </section>
 
-            {/* Billing Day Settings */}
-            <section>
-                <h2 className="text-sm font-bold text-gray-500 mb-3 px-1 flex items-center gap-2">
-                    <Calendar size={16} />
-                    卡片結帳日
-                </h2>
-                <div className="space-y-3">
-                    {userCards.length === 0 && (
-                        <div className="bg-white rounded-2xl p-8 text-center border-2 border-dashed border-gray-200">
-                            <AlertCircle className="mx-auto text-gray-300 mb-2" size={32} />
-                            <div className="text-sm text-gray-500">
-                                尚未新增任何卡片
-                            </div>
-                        </div>
-                    )}
 
-                    {userCards.map(uc => {
-                        const def = CARD_DEFS.find(c => c.id === uc.cardDefId);
-                        if (!def) return null;
-                        const bankColor = getBankColor(def.bank);
-
-                        return (
-                            <div key={uc.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 flex items-center justify-between">
-                                <div className="flex items-center gap-3">
-                                    <div className={`w-10 h-6 rounded shadow-sm ${bankColor}`} />
-                                    <div>
-                                        <div className="font-bold text-gray-900 text-sm">{def.name}</div>
-                                        <div className="text-[10px] text-gray-400">
-                                            結帳日: 每月 {uc.billingCycleDay} 號
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <select
-                                    value={uc.billingCycleDay}
-                                    onChange={(e) => updateBillingDay(uc.id, parseInt(e.target.value))}
-                                    className="bg-gray-50 border-none rounded-lg py-2 px-3 text-xs font-bold text-gray-600 outline-none focus:ring-2 focus:ring-blue-100"
-                                >
-                                    {Array.from({ length: 31 }, (_, i) => i + 1).map(d => (
-                                        <option key={d} value={d}>{d} 號結帳</option>
-                                    ))}
-                                </select>
-                            </div>
-                        );
-                    })}
-                </div>
-            </section>
         </div>
     );
 }
