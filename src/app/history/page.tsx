@@ -4,7 +4,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/lib/db';
 import { getCardDefinition } from '@/lib/calculator';
 import { format, startOfMonth, endOfMonth, subMonths, addMonths } from 'date-fns';
-import { getBankColor } from '@/lib/utils';
+import { getBankColor, getAssetPath } from '@/lib/utils';
 import { Trash2, ChevronLeft, ChevronRight, NotebookPen, Edit2, Check, X, Calculator } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -251,9 +251,15 @@ function TransactionItem({ tx }: { tx: any }) {
         <div className="bg-white p-4 rounded-xl shadow-sm relative group">
             <div className="flex justify-between items-start">
                 <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white text-[10px] font-bold ${bankColor}`}>
-                        {bankName.substring(0, 2)}
-                    </div>
+                    {def?.imageUrl ? (
+                        <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-100 relative shrink-0">
+                            <img src={getAssetPath(def.imageUrl)} alt={cardName} className="w-full h-full object-cover" />
+                        </div>
+                    ) : (
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0 ${bankColor}`}>
+                            {bankName.substring(0, 2)}
+                        </div>
+                    )}
                     <div>
                         <div className="font-bold text-gray-900">{cardName}</div>
                         <div className="text-xs text-gray-500">
