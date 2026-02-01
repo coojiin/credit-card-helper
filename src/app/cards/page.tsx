@@ -4,7 +4,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/lib/db';
 import { CARD_DEFS } from '@/lib/calculator';
 import { useState } from 'react';
-import { getBankColor } from '@/lib/utils';
+import { getBankColor, getAssetPath } from '@/lib/utils';
 import { Check, Search, Calendar, Trash2, Plus, CreditCard } from 'lucide-react';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -76,7 +76,7 @@ export default function CardsPage() {
                                         <div className="flex items-center gap-3">
                                             {def.imageUrl ? (
                                                 <div className="w-12 h-8 rounded-md shadow-sm overflow-hidden border border-gray-100 relative">
-                                                    <img src={def.imageUrl} alt={def.name} className="w-full h-full object-cover" />
+                                                    <img src={getAssetPath(def.imageUrl)} alt={def.name} className="w-full h-full object-cover" />
                                                 </div>
                                             ) : (
                                                 <div className={`w-12 h-8 rounded-md shadow-sm flex items-center justify-center text-[10px] text-white font-bold ${bankColor}`}>
@@ -152,7 +152,7 @@ export default function CardsPage() {
                             >
                                 {card.imageUrl ? (
                                     <div className="w-10 h-6.5 rounded shadow-sm mr-3 overflow-hidden border border-gray-100 relative flex-shrink-0">
-                                        <img src={card.imageUrl} alt={card.name} className="w-full h-full object-cover" />
+                                        <img src={getAssetPath(card.imageUrl)} alt={card.name} className="w-full h-full object-cover" />
                                     </div>
                                 ) : (
                                     <div className={`w-10 h-6.5 rounded shadow-sm mr-3 flex items-center justify-center text-[8px] text-white font-bold flex-shrink-0 ${bankColor}`}>

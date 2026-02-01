@@ -1,6 +1,15 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
+export const BASE_PATH = '/credit-card-helper';
+
+export function getAssetPath(path: string) {
+    if (!path) return '';
+    if (path.startsWith('http')) return path;
+    if (path.startsWith('/')) return `${BASE_PATH}${path}`;
+    return `${BASE_PATH}/${path}`;
+}
+
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }

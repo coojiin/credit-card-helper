@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { UserCard, RecommendationResult } from '@/types';
 import { calculateRecommendation } from '@/lib/calculator';
+import { getAssetPath } from '@/lib/utils';
 import { db } from '@/lib/db';
 import { v4 as uuidv4 } from 'uuid';
 import { ShoppingCart, Zap, Fuel, Globe, Plane, Coffee, CreditCard, Apple, Store, MapPin, Bike } from 'lucide-react';
@@ -139,7 +140,7 @@ export function Dashboard({ userCards }: { userCards: UserCard[] }) {
                                 <div className="flex items-start gap-3">
                                     {r.cardDef.imageUrl ? (
                                         <div className="w-14 h-9 rounded-md shadow-sm overflow-hidden flex-shrink-0 border border-gray-100 relative">
-                                            <img src={r.cardDef.imageUrl} alt={r.cardDef.name} className="w-full h-full object-cover" />
+                                            <img src={getAssetPath(r.cardDef.imageUrl)} alt={r.cardDef.name} className="w-full h-full object-cover" />
                                         </div>
                                     ) : (
                                         <div className="w-14 h-9 rounded-md shadow-sm bg-gray-200 flex-shrink-0"></div>
