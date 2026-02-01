@@ -74,9 +74,15 @@ export default function CardsPage() {
                                 <div key={uc.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 transition-all">
                                     <div className="flex items-start justify-between mb-4">
                                         <div className="flex items-center gap-3">
-                                            <div className={`w-12 h-8 rounded-md shadow-sm flex items-center justify-center text-[10px] text-white font-bold ${bankColor}`}>
-                                                {def.bank.substring(0, 2)}
-                                            </div>
+                                            {def.imageUrl ? (
+                                                <div className="w-12 h-8 rounded-md shadow-sm overflow-hidden border border-gray-100 relative">
+                                                    <img src={def.imageUrl} alt={def.name} className="w-full h-full object-cover" />
+                                                </div>
+                                            ) : (
+                                                <div className={`w-12 h-8 rounded-md shadow-sm flex items-center justify-center text-[10px] text-white font-bold ${bankColor}`}>
+                                                    {def.bank.substring(0, 2)}
+                                                </div>
+                                            )}
                                             <div>
                                                 <div className="font-bold text-gray-900 text-base">{def.name}</div>
                                                 <div className="text-xs text-gray-500">{def.bank}</div>
@@ -111,7 +117,8 @@ export default function CardsPage() {
                             );
                         })}
                     </div>
-                )}
+                )
+                }
             </section>
 
             {/* Section 2: Add Cards */}
@@ -143,9 +150,15 @@ export default function CardsPage() {
                                 onClick={() => handleAddCard(card.id)}
                                 className="flex items-center p-3 rounded-xl bg-white border border-transparent hover:border-blue-300 shadow-sm active:scale-[0.99] transition-all text-left group"
                             >
-                                <div className={`w-10 h-6.5 rounded shadow-sm mr-3 flex items-center justify-center text-[8px] text-white font-bold ${bankColor}`}>
-                                    {card.name.substring(0, 2)}
-                                </div>
+                                {card.imageUrl ? (
+                                    <div className="w-10 h-6.5 rounded shadow-sm mr-3 overflow-hidden border border-gray-100 relative flex-shrink-0">
+                                        <img src={card.imageUrl} alt={card.name} className="w-full h-full object-cover" />
+                                    </div>
+                                ) : (
+                                    <div className={`w-10 h-6.5 rounded shadow-sm mr-3 flex items-center justify-center text-[8px] text-white font-bold flex-shrink-0 ${bankColor}`}>
+                                        {card.name.substring(0, 2)}
+                                    </div>
+                                )}
 
                                 <div className="flex-1">
                                     <div className="font-bold text-gray-700 text-sm group-hover:text-blue-600 transition-colors">{card.name}</div>

@@ -48,7 +48,7 @@ export function Dashboard({ userCards }: { userCards: UserCard[] }) {
                     // If only B found, B comes first
                     if (idxB !== -1) return 1;
                     // Neither found, keep original order (relative to each other in SCENARIOS)
-                    return 0; 
+                    return 0;
                 });
                 setSortedScenarios(reordered);
             } catch (e) {
@@ -136,10 +136,19 @@ export function Dashboard({ userCards }: { userCards: UserCard[] }) {
                             {idx === 0 && <div className="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-bl-xl">BEST</div>}
 
                             <div className="flex justify-between items-start mb-2">
-                                <div>
-                                    <h3 className="font-bold text-lg text-gray-900">{r.cardDef.name}</h3>
-                                    <p className="text-sm text-gray-500">{r.cardDef.bank}</p>
-                                    {r.schemeName && <div className="mt-1 inline-block bg-blue-50 text-blue-600 text-xs px-2 py-0.5 rounded border border-blue-200">建議使用: {r.schemeName}</div>}
+                                <div className="flex items-start gap-3">
+                                    {r.cardDef.imageUrl ? (
+                                        <div className="w-14 h-9 rounded-md shadow-sm overflow-hidden flex-shrink-0 border border-gray-100 relative">
+                                            <img src={r.cardDef.imageUrl} alt={r.cardDef.name} className="w-full h-full object-cover" />
+                                        </div>
+                                    ) : (
+                                        <div className="w-14 h-9 rounded-md shadow-sm bg-gray-200 flex-shrink-0"></div>
+                                    )}
+                                    <div>
+                                        <h3 className="font-bold text-lg text-gray-900 leading-tight">{r.cardDef.name}</h3>
+                                        <p className="text-xs text-gray-500">{r.cardDef.bank}</p>
+                                        {r.schemeName && <div className="mt-1 inline-block bg-blue-50 text-blue-600 text-xs px-2 py-0.5 rounded border border-blue-200">建議使用: {r.schemeName}</div>}
+                                    </div>
                                 </div>
                                 <div className="text-right">
                                     <div className="text-2xl font-bold text-blue-600">{r.effectiveRate.toFixed(1)}%</div>
