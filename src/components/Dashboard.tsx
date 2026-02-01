@@ -5,11 +5,12 @@ import { UserCard, RecommendationResult } from '@/types';
 import { calculateRecommendation } from '@/lib/calculator';
 import { db } from '@/lib/db';
 import { v4 as uuidv4 } from 'uuid';
-import { ShoppingCart, Zap, Fuel, Globe, Plane, Coffee, CreditCard, Apple, Store, MapPin } from 'lucide-react';
+import { ShoppingCart, Zap, Fuel, Globe, Plane, Coffee, CreditCard, Apple, Store, MapPin, Bike } from 'lucide-react';
 
-const SCENARIOS = [
+export const SCENARIOS = [
     { id: 'general', label: '一般消費', icon: ShoppingCart },
     { id: 'mobile_pay', label: '行動支付', icon: Zap },
+    { id: 'delivery', label: '外送平台', icon: Bike },
     { id: 'convenience_store', label: '便利商店', icon: Coffee },
     { id: 'supermarket', label: '超市/量販', icon: ShoppingCart },
     { id: 'gas', label: '加油', icon: Fuel },
@@ -29,6 +30,32 @@ export function Dashboard({ userCards }: { userCards: UserCard[] }) {
     const [scenario, setScenario] = useState('general');
     const [results, setResults] = useState<RecommendationResult[]>([]);
     const [loading, setLoading] = useState(false);
+    const [sortedScenarios, setSortedScenarios] = useState(SCENARIOS);
+
+    // Load custom category order
+    useEffect(() => {
+        const savedOrder = localStorage.getItem('category_order');
+        if (savedOrder) {
+            try {
+                const order: string[] = JSON.parse(savedOrder);
+                const reordered = [...SCENARIOS].sort((a, b) => {
+                    const idxA = order.indexOf(a.id);
+                    const idxB = order.indexOf(b.id);
+                    // If both found, sort by index
+                    if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+                    // If only A found, A comes first
+                    if (idxA !== -1) return -1;
+                    // If only B found, B comes first
+                    if (idxB !== -1) return 1;
+                    // Neither found, keep original order (relative to each other in SCENARIOS)
+                    return 0; 
+                });
+                setSortedScenarios(reordered);
+            } catch (e) {
+                console.error("Failed to load category order", e);
+            }
+        }
+    }, []);
 
     useEffect(() => {
         const calc = async () => {
@@ -89,7 +116,7 @@ export function Dashboard({ userCards }: { userCards: UserCard[] }) {
                     <input type="text" value={note} onChange={e => setNote(e.target.value)} className="w-full px-4 py-2 rounded-xl bg-gray-100 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="備註 (例如: 買午餐)..." />
                 </div>
                 <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
-                    {SCENARIOS.map(s => {
+                    {sortedScenarios.map(s => {
                         const Icon = s.icon;
                         const isActive = scenario === s.id;
                         return (

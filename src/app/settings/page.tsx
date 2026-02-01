@@ -3,9 +3,10 @@
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '@/lib/db';
 import { CARD_DEFS } from '@/lib/calculator';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { getBankColor } from '@/lib/utils';
-import { Calendar, Download, Upload, Trash2, ShieldCheck, AlertCircle } from 'lucide-react';
+import { Calendar, Download, Upload, Trash2, ShieldCheck, AlertCircle, List, ArrowUp, ArrowDown } from 'lucide-react';
+import { SCENARIOS } from '@/components/Dashboard';
 
 export default function SettingsPage() {
     const userCards = useLiveQuery(() => db.userCards.toArray());
@@ -18,11 +19,59 @@ export default function SettingsPage() {
         return null;
     });
 
-    useState(() => {
+    // Category Sorting State
+    const [scenarios, setScenarios] = useState(SCENARIOS);
+    const [hasOrderChanged, setHasOrderChanged] = useState(false);
+
+    // Initialize Persistent Storage Check
+    useEffect(() => {
         if (typeof navigator !== 'undefined' && navigator.storage && navigator.storage.persisted) {
             navigator.storage.persisted().then(setIsPersistent);
         }
-    });
+    }, []);
+
+    // Initialize sorted scenarios based on local storage
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const savedOrder = localStorage.getItem('category_order');
+            if (savedOrder) {
+                try {
+                    const order: string[] = JSON.parse(savedOrder);
+                    const reordered = [...SCENARIOS].sort((a, b) => {
+                        const idxA = order.indexOf(a.id);
+                        const idxB = order.indexOf(b.id);
+                        if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+                        if (idxA !== -1) return -1;
+                        if (idxB !== -1) return 1;
+                        return 0;
+                    });
+                    setScenarios(reordered);
+                } catch (e) { console.error(e); }
+            }
+        }
+    }, []);
+
+    // Function to handle category move
+    const moveCategory = (index: number, direction: 'up' | 'down') => {
+        const newScenarios = [...scenarios];
+        if (direction === 'up' && index > 0) {
+            [newScenarios[index], newScenarios[index - 1]] = [newScenarios[index - 1], newScenarios[index]];
+        } else if (direction === 'down' && index < newScenarios.length - 1) {
+            [newScenarios[index], newScenarios[index + 1]] = [newScenarios[index + 1], newScenarios[index]];
+        }
+        setScenarios(newScenarios);
+        setHasOrderChanged(true);
+        // Auto save to local storage
+        localStorage.setItem('category_order', JSON.stringify(newScenarios.map(s => s.id)));
+    };
+
+    const resetCategoryOrder = () => {
+        if (confirm('確定要重置為預設順序？')) {
+            localStorage.removeItem('category_order');
+            setScenarios(SCENARIOS);
+            setHasOrderChanged(false);
+        }
+    };
 
     const updateBillingDay = async (id: string, day: number) => {
         if (day < 1 || day > 31) return;
@@ -171,6 +220,52 @@ export default function SettingsPage() {
                             清除所有資料
                         </button>
                     </div>
+                </div>
+            </section>
+
+            {/* Category Sorting Section */}
+            <section className="mb-8">
+                <h2 className="text-sm font-bold text-gray-500 mb-3 px-1 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                        <List size={16} />
+                        消費類別排序 (即時儲存)
+                    </div>
+                    {hasOrderChanged && (
+                        <button onClick={resetCategoryOrder} className="text-[10px] text-blue-500 underline">
+                            重置預設
+                        </button>
+                    )}
+                </h2>
+                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    {scenarios.map((s, idx) => {
+                        const Icon = s.icon;
+                        return (
+                            <div key={s.id} className="flex items-center justify-between p-3 border-b border-gray-50 last:border-0">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-500">
+                                        <Icon size={16} />
+                                    </div>
+                                    <span className="text-sm font-medium text-gray-700">{s.label}</span>
+                                </div>
+                                <div className="flex gap-1">
+                                    <button
+                                        onClick={() => moveCategory(idx, 'up')}
+                                        disabled={idx === 0}
+                                        className="p-1.5 rounded hover:bg-gray-100 text-gray-400 disabled:opacity-20 transition-colors"
+                                    >
+                                        <ArrowUp size={16} />
+                                    </button>
+                                    <button
+                                        onClick={() => moveCategory(idx, 'down')}
+                                        disabled={idx === scenarios.length - 1}
+                                        className="p-1.5 rounded hover:bg-gray-100 text-gray-400 disabled:opacity-20 transition-colors"
+                                    >
+                                        <ArrowDown size={16} />
+                                    </button>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
 
