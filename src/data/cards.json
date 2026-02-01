@@ -97,7 +97,7 @@
                         "rewardParts": [
                             {
                                 "rate": 3.0,
-                                "note": "權益分級: 2%~3.3%"
+                                "note": "Level 2 回饋"
                             }
                         ]
                     },
@@ -107,7 +107,27 @@
                         "rewardParts": [
                             {
                                 "rate": 3.0,
-                                "note": "權益分級: 2%~3.3%"
+                                "note": "Level 2 回饋"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "travel_korea",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "Level 2 回饋"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "travel_thailand",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "Level 2 回饋"
                             }
                         ]
                     },
@@ -117,7 +137,7 @@
                         "rewardParts": [
                             {
                                 "rate": 3.0,
-                                "note": "權益分級: 2%~3.3%"
+                                "note": "Level 2 回饋"
                             }
                         ]
                     },
@@ -142,7 +162,7 @@
                         "rewardParts": [
                             {
                                 "rate": 3.0,
-                                "note": "權益分級: 2%~3.3%"
+                                "note": "Level 2 回饋"
                             }
                         ]
                     },
@@ -152,7 +172,7 @@
                         "rewardParts": [
                             {
                                 "rate": 3.0,
-                                "note": "權益分級: 2%~3.3%"
+                                "note": "Level 2 回饋"
                             }
                         ]
                     },
@@ -177,7 +197,17 @@
                         "rewardParts": [
                             {
                                 "rate": 3.0,
-                                "note": "權益分級: 2%~3.3%"
+                                "note": "Level 2 回饋"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "entertainment",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 3.0,
+                                "note": "Level 2 回饋"
                             }
                         ]
                     },
@@ -201,8 +231,8 @@
                         "period": "statement_cycle",
                         "rewardParts": [
                             {
-                                "rate": 3.0,
-                                "note": "權益分級: 2%~3.3%"
+                                "rate": 2.0,
+                                "note": "集精選回饋"
                             }
                         ]
                     },
@@ -211,8 +241,8 @@
                         "period": "statement_cycle",
                         "rewardParts": [
                             {
-                                "rate": 3.0,
-                                "note": "權益分級: 2%~3.3%"
+                                "rate": 2.0,
+                                "note": "集精選回饋"
                             }
                         ]
                     },
@@ -221,8 +251,8 @@
                         "period": "statement_cycle",
                         "rewardParts": [
                             {
-                                "rate": 3.0,
-                                "note": "權益分級: 2%~3.3%"
+                                "rate": 2.0,
+                                "note": "集精選回饋"
                             }
                         ]
                     },
@@ -652,12 +682,7 @@
         "bank": "台新銀行",
         "imageUrl": "/cards/taishin-richart.png",
         "defaultBillingCycleDay": 12,
-        "capDefinitions": [
-            {
-                "id": "scheme_bonus",
-                "maxReward": 1000
-            }
-        ],
+        "capDefinitions": [],
         "rules": [
             {
                 "category": "general",
@@ -679,12 +704,8 @@
                         "period": "statement_cycle",
                         "rewardParts": [
                             {
-                                "rate": 0.3
-                            },
-                            {
-                                "rate": 3.5,
-                                "capGroupId": "scheme_bonus",
-                                "note": "LINE Pay/街口"
+                                "rate": 3.8,
+                                "note": "台新Pay/LINE Pay(2.3%)"
                             }
                         ]
                     },
@@ -708,11 +729,8 @@
                         "period": "statement_cycle",
                         "rewardParts": [
                             {
-                                "rate": 0.3
-                            },
-                            {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus"
+                                "rate": 3.3,
+                                "note": "國內餐飲/外送"
                             }
                         ]
                     },
@@ -736,12 +754,8 @@
                         "period": "statement_cycle",
                         "rewardParts": [
                             {
-                                "rate": 0.3
-                            },
-                            {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus",
-                                "note": "網購/影音"
+                                "rate": 3.3,
+                                "note": "網購/影音/AI"
                             }
                         ]
                     },
@@ -765,11 +779,7 @@
                         "period": "statement_cycle",
                         "rewardParts": [
                             {
-                                "rate": 0.3
-                            },
-                            {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus"
+                                "rate": 3.3
                             }
                         ]
                     },
@@ -778,11 +788,60 @@
                         "period": "statement_cycle",
                         "rewardParts": [
                             {
-                                "rate": 0.3
-                            },
+                                "rate": 3.3
+                            }
+                        ]
+                    },
+                    {
+                        "category": "travel_korea",
+                        "period": "statement_cycle",
+                        "rewardParts": [
                             {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus"
+                                "rate": 3.3
+                            }
+                        ]
+                    },
+                    {
+                        "category": "travel_thailand",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 3.3
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "daily",
+                "name": "天天刷",
+                "rules": [
+                    {
+                        "category": "convenience_store",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 3.3,
+                                "note": "超商/量販"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "supermarket",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 3.3,
+                                "note": "超商/量販"
                             }
                         ]
                     },
@@ -806,11 +865,8 @@
                         "period": "statement_cycle",
                         "rewardParts": [
                             {
-                                "rate": 0.3
-                            },
-                            {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus"
+                                "rate": 3.3,
+                                "note": "百貨/Outlet/居家"
                             }
                         ]
                     },
