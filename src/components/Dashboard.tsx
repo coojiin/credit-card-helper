@@ -32,6 +32,7 @@ export function Dashboard({ userCards }: { userCards: UserCard[] }) {
     const [results, setResults] = useState<RecommendationResult[]>([]);
     const [loading, setLoading] = useState(false);
     const [sortedScenarios, setSortedScenarios] = useState(SCENARIOS);
+    const [refreshKey, setRefreshKey] = useState(0);
 
     // Load custom category order
     useEffect(() => {
@@ -77,7 +78,7 @@ export function Dashboard({ userCards }: { userCards: UserCard[] }) {
             setLoading(false);
         };
         calc();
-    }, [userCards, amountStr, scenario]);
+    }, [userCards, amountStr, scenario, refreshKey]);
 
     const handleRecord = async (r: RecommendationResult) => {
         const val = parseFloat(amountStr) || 0;
@@ -99,7 +100,7 @@ export function Dashboard({ userCards }: { userCards: UserCard[] }) {
             });
             alert("記錄成功！");
             setNote('');
-            window.location.reload();
+            setRefreshKey(prev => prev + 1);
         } catch (e) {
             alert("Error recording");
         }
