@@ -672,12 +672,6 @@
         "bank": "台新銀行",
         "imageUrl": "/cards/taishin-richart.png",
         "defaultBillingCycleDay": 12,
-        "capDefinitions": [
-            {
-                "id": "scheme_bonus",
-                "maxReward": 1000
-            }
-        ],
         "rules": [
             {
                 "category": "general",
@@ -703,8 +697,7 @@
                             },
                             {
                                 "rate": 3.5,
-                                "capGroupId": "scheme_bonus",
-                                "note": "台新Pay/全盈+ (3.8%)"
+                                "note": "台新Pay/TWQR (LINE Pay 2.3%)"
                             }
                         ]
                     },
@@ -717,8 +710,35 @@
                             },
                             {
                                 "rate": 3.5,
-                                "capGroupId": "scheme_bonus",
-                                "note": "台新Pay (3.8%)"
+                                "note": "台新Pay"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "general",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "everyday",
+                "name": "天天刷",
+                "rules": [
+                    {
+                        "category": "supermarket",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            },
+                            {
+                                "rate": 3.0,
+                                "note": "超商/量販/交通"
                             }
                         ]
                     },
@@ -745,9 +765,7 @@
                                 "rate": 0.3
                             },
                             {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus",
-                                "note": "好饗刷"
+                                "rate": 3.0
                             }
                         ]
                     },
@@ -759,9 +777,7 @@
                                 "rate": 0.3
                             },
                             {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus",
-                                "note": "外送平台"
+                                "rate": 3.0
                             }
                         ]
                     },
@@ -788,9 +804,19 @@
                                 "rate": 0.3
                             },
                             {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus",
-                                "note": "網購/影音"
+                                "rate": 3.0
+                            }
+                        ]
+                    },
+                    {
+                        "category": "entertainment",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            },
+                            {
+                                "rate": 3.0
                             }
                         ]
                     },
@@ -817,8 +843,7 @@
                                 "rate": 0.3
                             },
                             {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus"
+                                "rate": 3.0
                             }
                         ]
                     },
@@ -830,8 +855,31 @@
                                 "rate": 0.3
                             },
                             {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus"
+                                "rate": 3.0
+                            }
+                        ]
+                    },
+                    {
+                        "category": "travel_korea",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            },
+                            {
+                                "rate": 3.0
+                            }
+                        ]
+                    },
+                    {
+                        "category": "travel_thailand",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 0.3
+                            },
+                            {
+                                "rate": 3.0
                             }
                         ]
                     },
@@ -858,8 +906,7 @@
                                 "rate": 0.3
                             },
                             {
-                                "rate": 3.0,
-                                "capGroupId": "scheme_bonus"
+                                "rate": 3.0
                             }
                         ]
                     },
@@ -869,6 +916,22 @@
                         "rewardParts": [
                             {
                                 "rate": 0.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "holiday",
+                "name": "假日刷",
+                "rules": [
+                    {
+                        "category": "general",
+                        "period": "statement_cycle",
+                        "rewardParts": [
+                            {
+                                "rate": 2.0,
+                                "note": "限假日/街口"
                             }
                         ]
                     }
